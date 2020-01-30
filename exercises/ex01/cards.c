@@ -1,23 +1,7 @@
-  /**
- * File: cards.c
- * Author:Spencer Griffin
- * Date: Spring 2019
- * Course/Assignmen: Software System Exercise 1
- * Summary of File:
-      This file contains code modified from the code on page 37 of Head First C.
-      The original function is refactored and splitted into three functions.
-      This code has been able compile without warnings using these flags:
-        gcc -ansi -pedantic -Wall cards.c
-      * -ansi flag: tells the compiler to implement the ANSI language option.
-          This turns off certain "features" of GCC which are incompatible with
-          the ANSI standard.
-      * -pedantic: used in conjunction with -ansi, this tells the compiler to
-          be adhere strictly to the ANSI standard, rejecting any code which is
-          not compliant.
-      * -Wall: tells the compiler to implement 'all' Warning options. Warnings
-          are diagnostic messages that report constructions which are not
-          inherently erroneous but which are risky or suggest there may have
-          been an error.
+  /*
+    *Spencer Griffin
+    *Software Systems Exercise 1
+
 */
 
 #include <stdio.h>

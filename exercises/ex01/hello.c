@@ -2,7 +2,20 @@
 
 int main() {
     int x = 5;
-    // printf("Hello, World!\n");
-    printf("x!\n");
+    int y = x + 1;
+    printf("Hello, World!\n");
+    printf("y is %d\n",y);
     return 0;
 }
+
+/*
+1.  I get:
+    subq $16, %rsp 
+    movl $5, -8(%rbp)
+
+2. The lines disappear
+
+3. Movl	$5 and %es is added
+
+4. The conclusion is that optimization decreases runtime by reducing the code size. 
+ */
