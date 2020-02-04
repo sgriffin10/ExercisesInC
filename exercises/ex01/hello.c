@@ -1,19 +1,21 @@
 #include <stdio.h>
+void RandomValue(){
+    int var = 69;
+    printf("%d\n", var);
+}
 
 int main() {
-    int val;
+    int val = 3;
     int x = 5;
     int y = x + 1;
     printf("Hello, World!\n");
     printf("y is %d\n",y);
-    val = RandomValue(3);
-    printf(val);
+    RandomValue();
+    printf("%d\n",val);
     return 0;
 }
 
-void RandomValue(int ){
-    return 69;
-}
+
 
 /*
 1.  I get:
