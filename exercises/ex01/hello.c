@@ -2,13 +2,12 @@
 
 
 /*
-added after class #3 on Friday Jan 31st
+added after class #3 on Friday Jan 31st for testing purposes
 */
-void RandomValue(){
-    int var = 69;
-    printf("%d\n", var);
-}
-
+// void RandomValue(){
+//     int var = 69;
+//     printf("%d\n", var);
+// }
 
 /*
 Original from HW1
@@ -19,7 +18,7 @@ int main() {
     int y = x + 1;
     printf("Hello, World!\n");
     printf("y is %d\n",y);
-    RandomValue();
+    // RandomValue();
     printf("%d\n",val);
     return 0;
 }
