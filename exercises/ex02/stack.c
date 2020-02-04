@@ -45,3 +45,11 @@ int main()
 
     return 0;
 }
+
+
+/* Question 1: It will print out the address of both arrays in bar() and foo(). It should also print out "42" five times.
+
+Question 2: warning: address of stack memory associated with local variable 'array' returned [-Wreturn-stack-address]
+    return array;
+
+*/
