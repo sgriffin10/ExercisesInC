@@ -1,9 +1,18 @@
 #include <stdio.h>
+
+
+/*
+added after class #3 on Friday Jan 31st
+*/
 void RandomValue(){
     int var = 69;
     printf("%d\n", var);
 }
 
+
+/*
+Original from HW1
+*/
 int main() {
     int val = 3;
     int x = 5;
