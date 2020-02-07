@@ -52,4 +52,7 @@ int main()
 Question 2: warning: address of stack memory associated with local variable 'array' returned [-Wreturn-stack-address]
     return array;
 
+Question 3: The segmentation fault that appears is due to the main function pointing towards the address of a stack allocated data.
+
+Question 4: Get a warning saying local variable array in bar function is set but not used.
 */

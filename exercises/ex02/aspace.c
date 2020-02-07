@@ -24,21 +24,25 @@ int main ()
     int var2 = 5;
     void *g = malloc(128);
     void *e = malloc(128);
+    char *s = "Hello, World";
 
     
 
     printf ("Address of main is %p\n", main);
     printf ("Address of var1 is %p\n", &var1);
     printf ("Address of var2 is %p\n", &var2);
+    PrintAdress(var2);
+    //Stack grows downwards towards lower addresses. Local variables are lower than address of var2
 
     void *p = malloc(10);
     void *v = malloc(10);
-    char *s = "Hello, World";
+  
 
     printf ("p points to %p\n", p);
-    printf ("s points to %p\n", v); //1.40524902e14 is this right? or 0x24F0 (9456 bytes)
+    printf ("s points to %p\n", v); 
+    //Space between the two is 0x24F0 (9456 bytes)
 
-    PrintAdress(var2);
+
 
     return 0;
 }
