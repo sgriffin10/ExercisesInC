@@ -24,9 +24,21 @@ by setting the pointer it got as an argument.
 #include <math.h>
 #include <assert.h>
 
-/* get_int_part: Compute the integer part of the elements in an array.
+double *get_int_part(double *a, int n){
+    double *res = malloc();
 
-array: array of doubles
+    return res;
+}
+
+double *get_int_part(double *a, int n, double **p){
+    double *res1 = malloc(...);
+    double *res2 = malloc(...);
+
+    *p = res2;
+    return res1;
+}
+
+/* array: array of doubles
 length: number of elements in the array
 
 returns: new array, caller must free
