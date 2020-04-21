@@ -12,12 +12,15 @@ License: MIT License https://opensource.org/licenses/MIT
 #include <errno.h>
 #include <sys/time.h>
 #include <sys/types.h>
-#include <wait.h>
+// #include <wait.h>
 
 
 // errno is an external global variable that contains
 // error information
 extern int errno;
+
+int global_variable = 1;
+int* heap_variable = NULL;
 
 
 // get_seconds returns the number of seconds since the
@@ -46,6 +49,11 @@ int main(int argc, char *argv[])
     double start, stop;
     int i, num_children;
 
+    heap_variable = (int *) malloc(sizeof(int));
+    *heap_variable = 1;
+    int stack_variable = 1;
+    static int static_variable = 1;
+
     // the first command-line argument is the name of the executable.
     // if there is a second, it is the number of children to create.
     if (argc == 2) {
@@ -73,6 +81,14 @@ int main(int argc, char *argv[])
         /* see if we're the parent or the child */
         if (pid == 0) {
             child_code(i);
+            (*heap_variable)++;
+            printf("child heap is: %d\n", *heap_variable);
+            global_variable;
+            printf("child global is: %d\n", global_variable);
+            stack_variable++;
+            printf("child stakc is: %d\n", stack_variable);
+            static_variable++;
+            printf("child static is: %d\n", static_variable);
             exit(i);
         }
     }
@@ -93,6 +109,13 @@ int main(int argc, char *argv[])
         status = WEXITSTATUS(status);
         printf("Child %d exited with error code %d.\n", pid, status);
     }
+   
+    printf("parent heap is: %d\n", *heap_variable);
+    printf("parent global is: %d\n", global_variable);
+    printf("parent stakc is: %d\n", stack_variable);
+    printf("parent static is: %d\n", static_variable);
+
+
     // compute the elapsed time
     stop = get_seconds();
     printf("Elapsed time = %f seconds.\n", stop - start);
