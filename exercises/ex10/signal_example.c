@@ -19,6 +19,7 @@ Based on an example in Head First C.
 #include <signal.h>
 
 int score = 0;
+int end = 0;
 
 /* Set up a signal handler.
 
@@ -45,7 +46,7 @@ void end_game(int sig)
 */
 void times_up(int sig) {
     puts("\nTIME'S UP!");
-    raise(SIGINT);
+    end = 1;
 }
 
 int main(void) {
@@ -68,6 +69,7 @@ int main(void) {
         printf("\nWhat is %d times %d? ", a, b);
 
         // set (or reset) the alarm
+        if (!end)
         alarm(5);
 
         // get the answer
@@ -78,6 +80,9 @@ int main(void) {
         if (answer == a * b) {
             printf("\nRight!\n");
             score++;
+        } else if (ret == NULL){
+            printf("\nOne more attempt!\n");
+            continue;
         } else {
             printf("\nWrong!\n");
         }
