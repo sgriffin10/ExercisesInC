@@ -11,29 +11,12 @@ License: GNU GPLv3
 
 3. 
 
-Counter_Array:
-
-real	0m0.037s
-user	0m0.044s
-sys	    0m0.005s
-
-Counter_Array_Mutex:
-
-real	0m0.064s
-user	0m0.097s
-sys	    0m0.006s
-
-Difference:
-
-real    0.027s
-user    0.053s
-real    0.001s
-
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include "mutex.h"
 
 #define NUM_CHILDREN 2
 
@@ -56,6 +39,7 @@ typedef struct {
     int counter;
     int end;
     int *array;
+    Mutex *mutex;
 } Shared;
 
 Shared *make_shared(int end)
@@ -98,6 +82,7 @@ void child_code(Shared *shared)
     printf("Starting child at counter %d\n", shared->counter);
 
     while (1) {
+        mutex_lock(shared->mutex);
         if (shared->counter >= shared->end) {
             return;
         }
@@ -107,6 +92,7 @@ void child_code(Shared *shared)
         if (shared->counter % 10000 == 0) {
             printf("%d\n", shared->counter);
         }
+        mutex_unlock(shared->mutex);
     }
 }
 

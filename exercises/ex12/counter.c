@@ -5,11 +5,19 @@ License: GNU GPLv3
 
 */
 
+/*
+
+3. For example, if you increase the number of children to 10, the final value for counter is 10.
+
+No synchronization errors occur because the threads are running concurrently. The order of the event can't be determined.
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 
-#define NUM_CHILDREN 5
+#define NUM_CHILDREN 10
 
 /* Print an error message and exit.
 */
