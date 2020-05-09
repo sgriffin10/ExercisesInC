@@ -37,7 +37,7 @@ void parent_code(int pipe_to_child[], int pipe_to_parent[])
 
     //read string from child
 
-    ssize_t size2 = read(pipe_to_parent, buffer, count);
+    ssize_t size2 = read(pipe_to_parent[0], buffer, count);
     if (size2 == -1)
         error ("Parent can't read from child");
     printf("Parent red %ld bytes\n", size2);
